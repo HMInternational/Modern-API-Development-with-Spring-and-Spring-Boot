@@ -36,8 +36,8 @@ tags:
     description: Operations about shippings
   - name: product
     description: Operations about products
-  - name: card 
-    description: card operation 
+  - name: card
+    description: card operation
 
 paths:
   /api/v1/carts/{customerId}:
@@ -70,7 +70,7 @@ paths:
                   $ref: '#/components/schemas/Cart'
         404:
           description: Given customer ID doesn't exist
-          content: {}
+          content: { }
     delete:
       tags:
         - cart
@@ -89,7 +89,7 @@ paths:
           description: successful operation
         404:
           description: Given customer ID doesn't exist
-          content: {}
+          content: { }
   /api/v1/carts/{customerId}/items:
     get:
       tags:
@@ -120,7 +120,7 @@ paths:
                   $ref: '#/components/schemas/Item'
         404:
           description: Given customer ID doesn't exist
-          content: {}
+          content: { }
     post:
       tags:
         - cart
@@ -159,7 +159,7 @@ paths:
                   $ref: '#/components/schemas/Item'
         404:
           description: Given customer ID doesn't exist
-          content: {}
+          content: { }
     put:
       tags:
         - cart
@@ -198,7 +198,7 @@ paths:
                   $ref: '#/components/schemas/Item'
         404:
           description: Given customer ID doesn't exist
-          content: {}
+          content: { }
   /api/v1/carts/{customerId}/items/{itemId}:
     get:
       tags:
@@ -235,7 +235,7 @@ paths:
                   $ref: '#/components/schemas/Item'
         404:
           description: Given item (product) ID doesn't exist
-          content: {}
+          content: { }
     delete:
       tags:
         - cart
@@ -262,7 +262,7 @@ paths:
     post:
       tags:
         - order
-      summary:  Creates a new order for the given order request
+      summary: Creates a new order for the given order request
       description: Creates a new order for the given order request.
       operationId: addOrder
       requestBody:
@@ -290,7 +290,7 @@ paths:
                   $ref: '#/components/schemas/Order'
         406:
           description: If payment is not authorized.
-          content: {}
+          content: { }
     get:
       tags:
         - order
@@ -320,7 +320,7 @@ paths:
                   $ref: '#/components/schemas/Order'
         404:
           description: Order doesn't exist for given user.
-          content: {}
+          content: { }
   /api/v1/orders/{id}:
     get:
       tags:
@@ -347,7 +347,7 @@ paths:
                 $ref: '#/components/schemas/Order'
         404:
           description: Order doesn't exist for given user.
-          content: {}
+          content: { }
   /api/v1/customers:
     get:
       tags:
@@ -409,7 +409,7 @@ paths:
       responses:
         202:
           description: Request accepted, returns this status even if user does not exist
-          content: {}
+          content: { }
   /api/v1/customers/{id}/cards:
     get:
       tags:
@@ -543,7 +543,7 @@ paths:
       responses:
         202:
           description: Accepts the deletion request and perform deletion. If ID does not exist, does nothing.
-          content: {}
+          content: { }
   /api/v1/cards:
     get:
       tags:
@@ -568,8 +568,8 @@ paths:
     post:
       tags:
         - card
-      summary: Creates a  new card 
-      description: Creates a new card. or replaces the existing one 
+      summary: Creates a  new card
+      description: Creates a new card. or replaces the existing one
       operationId: registerCard
       requestBody:
         content:
@@ -629,7 +629,7 @@ paths:
       responses:
         202:
           description: Accepts the deletion request and perform deletion. If ID does not exist, does nothing.
-          content: {}
+          content: { }
   /api/v1/payments:
     post:
       tags:

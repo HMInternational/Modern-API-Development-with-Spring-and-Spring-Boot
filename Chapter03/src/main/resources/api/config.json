@@ -11,7 +11,7 @@
   "hateoas": true,
   "withXml": true,
   "importMappings": {
-    "ResourceSupport":"org.springframework.hateoas.RepresentationModel",
+    "ResourceSupport": "org.springframework.hateoas.RepresentationModel",
     "Link": "org.springframework.hateoas.Link"
   }
 }
