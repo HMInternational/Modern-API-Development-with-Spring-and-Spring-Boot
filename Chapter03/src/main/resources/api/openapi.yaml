@@ -1014,19 +1014,19 @@ components:
       properties:
         customer:
           #description: URI that should be used to fetch the customer
-          $ref: '#/components/schemas/URI'
+          $ref: '#/components/schemas/Uri'
         address:
           #description: URI that should be used to fetch the address
-          $ref: '#/components/schemas/URI'
+          $ref: '#/components/schemas/Uri'
         card:
           #description: URI that should be used to fetch the payment card
-          $ref: '#/components/schemas/URI'
+          $ref: '#/components/schemas/Uri'
         items:
           #description: URI that should be used to fetch the items from shopping cart
-          $ref: '#/components/schemas/URI'
+          $ref: '#/components/schemas/Uri'
       xml:
         name: NewOrder
-    URI:
+    Uri:
       type: object
       xml:
         name: URI
