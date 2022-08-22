@@ -6,9 +6,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class eCommerceAppTests {
+class ECommerceAppTests {
 
-	private static final Logger log = LoggerFactory.getLogger(eCommerceAppTests.class);
+	private static final Logger log = LoggerFactory.getLogger(ECommerceAppTests.class);
 
 	@Test
 	void contextLoads() {
