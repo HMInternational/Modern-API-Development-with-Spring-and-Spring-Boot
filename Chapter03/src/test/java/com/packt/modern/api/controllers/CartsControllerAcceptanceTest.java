@@ -11,7 +11,7 @@ import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.core.Is.is;
 
 class CartsControllerAcceptanceTest {
-    private final String customerId = "uuid-xx";
+    private final String customerId = "uuid";
 
     @BeforeEach
     void setUp() {
