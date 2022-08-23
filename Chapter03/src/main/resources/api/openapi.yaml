@@ -60,14 +60,10 @@ paths:
           content:
             application/xml:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Cart'
+                $ref: '#/components/schemas/Cart'
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Cart'
+                $ref: '#/components/schemas/Cart'
         404:
           description: Given customer ID doesn't exist
           content: { }
