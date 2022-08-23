@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.http.MediaType;
 
 import static io.restassured.module.mockmvc.RestAssuredMockMvc.given;
-import static org.hamcrest.Matchers.empty;
+import static org.hamcrest.Matchers.blankOrNullString;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.core.Is.is;
 
@@ -46,9 +46,7 @@ class CartsControllerAcceptanceTest {
                 .then()
                 .log().all()
                 .statusCode(404)
-                .contentType(MediaType.APPLICATION_JSON_VALUE)
-                .assertThat()
-                .body(empty());
+                .body(blankOrNullString());
     }
 
 }
