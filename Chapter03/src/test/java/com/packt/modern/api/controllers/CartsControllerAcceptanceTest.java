@@ -10,7 +10,7 @@ import static org.hamcrest.Matchers.empty;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.core.Is.is;
 
-class CartsControllerIntegrationTest {
+class CartsControllerAcceptanceTest {
     private final String customerId = "uuid-xx";
 
     @BeforeEach
