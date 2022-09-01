@@ -1,5 +1,6 @@
 package com.packt.modern.api.controllers;
 
+import com.packt.modern.api.exceptions.RestApiErrorHandler;
 import io.restassured.module.mockmvc.RestAssuredMockMvc;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -15,7 +16,7 @@ class CartsControllerAcceptanceTest {
 
     @BeforeEach
     void setUp() {
-        RestAssuredMockMvc.standaloneSetup(new CartsController());
+        RestAssuredMockMvc.standaloneSetup(new CartsController(), new RestApiErrorHandler(null));
     }
 
     @Test
