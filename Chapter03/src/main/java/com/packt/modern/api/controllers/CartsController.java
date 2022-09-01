@@ -6,7 +6,6 @@ import com.packt.modern.api.model.Item;
 import com.packt.modern.api.service.CartDto;
 import com.packt.modern.api.service.ItemDto;
 import com.packt.modern.api.service.ReadCartsService;
-import com.packt.modern.api.service.ReadCartsServiceStub;
 import org.springdoc.api.OpenApiResourceNotFoundException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,7 +14,11 @@ import java.util.List;
 
 @RestController
 class CartsController implements CartApi {
-    private ReadCartsService readCartsService = new ReadCartsServiceStub();
+    private final ReadCartsService readCartsService;
+
+    CartsController(final ReadCartsService readCartsService) {
+        this.readCartsService = readCartsService;
+    }
 
     @Override
     public ResponseEntity<Cart> getCartByCustomerId(final String customerId) {
