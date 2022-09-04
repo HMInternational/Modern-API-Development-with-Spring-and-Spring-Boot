@@ -1,4 +1,6 @@
 package com.packt.modern.api.service;
 
-public record ItemDto() {
+import java.math.BigDecimal;
+
+public record ItemDto(String id, Integer quantity, BigDecimal unitPrice) {
 }
