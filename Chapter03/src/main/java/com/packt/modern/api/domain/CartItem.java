@@ -3,15 +3,17 @@ package com.packt.modern.api.domain;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.List;
+import java.math.BigDecimal;
 import java.util.UUID;
 
 @Getter
 @Setter
-public class Cart {
+public class CartItem {
     private UUID id;
 
-    private String customerId;
+    private String productId;
 
-    private List<CartItem> items;
+    private BigDecimal unitPrice;
+
+    private Integer quantity;
 }
