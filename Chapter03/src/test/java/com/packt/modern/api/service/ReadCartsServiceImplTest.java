@@ -63,5 +63,64 @@ class ReadCartsServiceImplTest {
             return findByCustomerId_will_returns;
         }
 
+        @Override
+        public <S extends Cart> S save(final S entity) {
+            throw new UnsupportedOperationException("unimplemented");
+        }
+
+        @Override
+        public <S extends Cart> Iterable<S> saveAll(final Iterable<S> entities) {
+            throw new UnsupportedOperationException("unimplemented");
+        }
+
+        @Override
+        public Optional<Cart> findById(final String s) {
+            throw new UnsupportedOperationException("unimplemented");
+        }
+
+        @Override
+        public boolean existsById(final String s) {
+            throw new UnsupportedOperationException("unimplemented");
+        }
+
+        @Override
+        public Iterable<Cart> findAll() {
+            throw new UnsupportedOperationException("unimplemented");
+        }
+
+        @Override
+        public Iterable<Cart> findAllById(final Iterable<String> strings) {
+            throw new UnsupportedOperationException("unimplemented");
+        }
+
+        @Override
+        public long count() {
+            throw new UnsupportedOperationException("unimplemented");
+        }
+
+        @Override
+        public void deleteById(final String s) {
+            throw new UnsupportedOperationException("unimplemented");
+        }
+
+        @Override
+        public void delete(final Cart entity) {
+            throw new UnsupportedOperationException("unimplemented");
+        }
+
+        @Override
+        public void deleteAllById(final Iterable<? extends String> strings) {
+            throw new UnsupportedOperationException("unimplemented");
+        }
+
+        @Override
+        public void deleteAll(final Iterable<? extends Cart> entities) {
+            throw new UnsupportedOperationException("unimplemented");
+        }
+
+        @Override
+        public void deleteAll() {
+            throw new UnsupportedOperationException("unimplemented");
+        }
     }
 }
