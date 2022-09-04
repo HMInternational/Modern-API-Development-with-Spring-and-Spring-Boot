@@ -2,6 +2,7 @@ package com.packt.modern.api.service;
 
 import com.packt.modern.api.domain.Cart;
 import com.packt.modern.api.domain.CartRepository;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.Optional;
@@ -10,9 +11,15 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class ReadCartsServiceImplTest {
 
+    private ReadCartsServiceImpl sut;
+
+    @BeforeEach
+    void setUp() {
+        sut = new ReadCartsServiceImpl(new CartRepositoryStub());
+    }
+
     @Test
     void findById() {
-        final var sut = new ReadCartsServiceImpl(new CartRepositoryStub());
         assertThat(sut.findById("xxx")).isNotEmpty();
     }
 
