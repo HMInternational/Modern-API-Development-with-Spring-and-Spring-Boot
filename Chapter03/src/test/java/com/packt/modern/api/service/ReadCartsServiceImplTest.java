@@ -10,12 +10,14 @@ import java.util.Optional;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class ReadCartsServiceImplTest {
+    private CartRepositoryStub cartRepository;
 
     private ReadCartsServiceImpl sut;
 
     @BeforeEach
     void setUp() {
-        sut = new ReadCartsServiceImpl(new CartRepositoryStub());
+        cartRepository = new CartRepositoryStub();
+        sut = new ReadCartsServiceImpl(cartRepository);
     }
 
     @Test
