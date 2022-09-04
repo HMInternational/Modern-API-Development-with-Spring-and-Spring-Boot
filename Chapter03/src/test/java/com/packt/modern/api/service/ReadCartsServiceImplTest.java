@@ -23,7 +23,9 @@ class ReadCartsServiceImplTest {
 
     @Test
     void findById() {
-        assertThat(sut.findById(customerId)).isNotEmpty();
+        cartRepository.findByCustomerId_will_returns = Optional.empty();
+
+        assertThat(sut.findById(customerId)).isEmpty();
     }
 
     private class CartRepositoryStub implements CartRepository {
