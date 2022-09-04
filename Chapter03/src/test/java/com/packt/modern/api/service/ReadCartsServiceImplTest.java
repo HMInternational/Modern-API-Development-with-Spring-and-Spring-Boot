@@ -8,7 +8,7 @@ class ReadCartsServiceImplTest {
 
     @Test
     void findById() {
-        final var sut = new ReadCartsServiceImpl();
+        final var sut = new ReadCartsServiceImpl(null);
         assertThat(sut.findById("xxx")).isNotEmpty();
     }
 }
