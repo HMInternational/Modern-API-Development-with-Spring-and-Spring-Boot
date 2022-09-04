@@ -10,6 +10,7 @@ import java.util.Optional;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class ReadCartsServiceImplTest {
+    private final String customerId = "xxx";
     private CartRepositoryStub cartRepository;
 
     private ReadCartsServiceImpl sut;
@@ -22,7 +23,7 @@ class ReadCartsServiceImplTest {
 
     @Test
     void findById() {
-        assertThat(sut.findById("xxx")).isNotEmpty();
+        assertThat(sut.findById(customerId)).isNotEmpty();
     }
 
     private class CartRepositoryStub implements CartRepository {
