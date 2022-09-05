@@ -4,11 +4,13 @@ import com.packt.modern.api.domain.Cart;
 import com.packt.modern.api.domain.CartItem;
 import com.packt.modern.api.domain.CartRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
+@Transactional(readOnly = true)
 class ReadCartsServiceImpl implements ReadCartsService {
     private final CartRepository cartRepository;
 
@@ -35,6 +37,6 @@ class ReadCartsServiceImpl implements ReadCartsService {
     }
 
     private ItemDto mapItemToDto(final CartItem cartItem) {
-        return new ItemDto(cartItem.getId().toString(), cartItem.getQuantity(), cartItem.getUnitPrice());
+        return new ItemDto(cartItem.getId(), cartItem.getQuantity(), cartItem.getUnitPrice());
     }
 }

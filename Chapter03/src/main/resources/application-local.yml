@@ -8,6 +8,7 @@ spring:
     show-sql: true
     generate-ddl: false
     database-platform: org.hibernate.dialect.H2Dialect
+    defer-datasource-initialization: true
   datasource:
     name: ecomm
     url: jdbc:h2:mem:ecomm;DB_CLOSE_DELAY=-1;IGNORECASE=TRUE;DATABASE_TO_UPPER=false;
