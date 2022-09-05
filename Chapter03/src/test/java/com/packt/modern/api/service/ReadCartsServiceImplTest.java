@@ -38,17 +38,18 @@ class ReadCartsServiceImplTest {
 
     private Optional<Cart> stubCart() {
         final Cart cart = new Cart();
-        cart.setId(UUID.randomUUID());
+        cart.setId(UUID.randomUUID().toString());
         cart.setCustomerId(customerId);
+        final UUID uuid = UUID.randomUUID();
         cart.setItems(List.of(
-                createItem(UUID.randomUUID(), "test-product-0", 1, 1000),
-                createItem(UUID.randomUUID(), "test-product-1", 2, 2000)));
+                createItem(uuid, "test-product-0", 1, 1000),
+                createItem(uuid, "test-product-1", 2, 2000)));
         return Optional.of(cart);
     }
 
     private CartItem createItem(final UUID id, final String productId, final int quantity, final int unitPrice) {
         final CartItem cartItem = new CartItem();
-        cartItem.setId(id);
+        cartItem.setId(id.toString());
         cartItem.setProductId(productId);
         cartItem.setQuantity(quantity);
         cartItem.setUnitPrice(BigDecimal.valueOf(unitPrice));
