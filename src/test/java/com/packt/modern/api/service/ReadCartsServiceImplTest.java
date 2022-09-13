@@ -2,10 +2,13 @@ package com.packt.modern.api.service;
 
 import com.packt.modern.api.domain.CartEntity;
 import com.packt.modern.api.domain.CartRepository;
+import com.packt.modern.api.domain.ItemEntity;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.math.BigDecimal;
+import java.util.List;
 import java.util.Optional;
 
 class ReadCartsServiceImplTest {
@@ -24,13 +27,20 @@ class ReadCartsServiceImplTest {
     void findById() {
         // given
         String customerId = "uuid";
-        cartRepository.cartEntity = Optional.of(new CartEntity());
+        final BigDecimal zero = BigDecimal.ZERO;
+        final ItemEntity itemEntity = new ItemEntity();
+        itemEntity.setId("1");
+        itemEntity.setQuantity(1);
+        itemEntity.setUnitPrice(zero);
+        cartRepository.cartEntity = Optional.of(new CartEntity(customerId, List.of(itemEntity, new ItemEntity())));
 
         // when
         final Optional<CartDto> customer = readCartsService.findById(customerId);
 
         // then
         Assertions.assertThat(customer).isPresent();
+        Assertions.assertThat(customer.get().items()).hasSize(2);
+        Assertions.assertThat(customer.get().items().get(0)).isEqualTo(new ItemDto("1", 1, zero));
 
     }
 

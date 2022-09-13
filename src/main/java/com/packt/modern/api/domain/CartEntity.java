@@ -8,6 +8,11 @@ public class CartEntity {
     String customerId;
     List<ItemEntity> items = new ArrayList<>();
 
+    public CartEntity(final String customerId, final List<ItemEntity> items) {
+        this.customerId = customerId;
+        this.items = items;
+    }
+
     public String getCustomerId() {
         return customerId;
     }

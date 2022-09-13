@@ -31,7 +31,7 @@ public class ReadCartsServiceImpl implements ReadCartsService {
     }
 
     private List<ItemDto> mapToItemsDto(final List<ItemEntity> items) {
-        return items.stream().map(itemEntity -> new ItemDto(null, null, null)).toList();
+        return items.stream().map(itemEntity -> new ItemDto(itemEntity.getId(), itemEntity.getQuantity(), itemEntity.getUnitPrice())).toList();
     }
 
 }
