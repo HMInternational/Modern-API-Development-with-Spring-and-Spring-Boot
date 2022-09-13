@@ -23,6 +23,7 @@ class CartRepositoryTest {
         final Optional<CartEntity> optionalCartEntity = cartRepository.findByCustomerId(customerId);
 
         Assertions.assertThat(optionalCartEntity).isPresent();
+        Assertions.assertThat(optionalCartEntity.get().getItems()).isNotEmpty();
     }
 
     @Test

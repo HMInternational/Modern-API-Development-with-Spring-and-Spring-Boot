@@ -4,6 +4,7 @@ import com.packt.modern.api.domain.CartEntity;
 import com.packt.modern.api.domain.CartRepository;
 import com.packt.modern.api.domain.ItemEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -18,12 +19,12 @@ public class ReadCartsServiceImpl implements ReadCartsService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Optional<CartDto> findById(final String customerId) {
         if (null == customerId) throw new IllegalArgumentException("Customer Identifier  cannot be null");
 
-        final Optional<CartDto> cartDto = cartRepository.findByCustomerId(customerId)
-                .map(cartEntity -> mapToDto(cartEntity));
-        return cartDto;
+        return cartRepository.findByCustomerId(customerId)
+                .map(this::mapToDto);
     }
 
     private CartDto mapToDto(final CartEntity cartEntity) {
