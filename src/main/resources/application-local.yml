@@ -1,0 +1,36 @@
+spring:
+  config:
+    activate:
+      on-profile: local
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    generate-ddl: false
+    database-platform: org.hibernate.dialect.H2Dialect
+    defer-datasource-initialization: true
+  datasource:
+    name: ecomm
+    url: jdbc:h2:mem:ecomm;DB_CLOSE_DELAY=-1;IGNORECASE=TRUE;DATABASE_TO_UPPER=false;
+    username: sa
+  h2:
+    console:
+      enabled: true
+  sql:
+    init:
+      mode: embedded
+  output:
+    ansi:
+      enabled: always
+  flyway:
+    enabled: false
+
+logging:
+  level:
+    root: INFO
+    org:
+      springframework:
+        transaction: DEBUG
+        orm:
+          jpa: DEBUG
+        cache: TRACE

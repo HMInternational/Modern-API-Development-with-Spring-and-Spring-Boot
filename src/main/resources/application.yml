@@ -1,0 +1,27 @@
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'health'
+
+spring:
+  application:
+    name: modern-api-development-book
+  profiles:
+    active: local
+  jpa:
+    open-in-view: false
+  h2:
+    console:
+      enabled: true
+
+logging:
+  level:
+    root: INFO
+    org:
+      springframework:
+        transaction: DEBUG
+        orm:
+          jpa: DEBUG
+        cache: TRACE
+
