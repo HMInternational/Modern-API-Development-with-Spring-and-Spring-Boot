@@ -21,7 +21,7 @@ public class ReadCartsServiceImpl implements ReadCartsService {
     public Optional<CartDto> findById(final String customerId) {
         if (null == customerId) throw new IllegalArgumentException("Customer Identifier  cannot be null");
 
-        final Optional<CartDto> cartDto = cartRepository.findById(customerId)
+        final Optional<CartDto> cartDto = cartRepository.findByCustomerId(customerId)
                 .map(cartEntity -> mapToDto(cartEntity));
         return cartDto;
     }

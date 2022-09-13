@@ -71,7 +71,67 @@ class ReadCartsServiceImplTest {
         public Optional<CartEntity> cartEntity = Optional.empty();
 
         @Override
+        public <S extends CartEntity> S save(final S entity) {
+            return null;
+        }
+
+        @Override
+        public <S extends CartEntity> Iterable<S> saveAll(final Iterable<S> entities) {
+            return null;
+        }
+
+        @Override
         public Optional<CartEntity> findById(final String customerId) {
+            return cartEntity;
+        }
+
+        @Override
+        public boolean existsById(final String s) {
+            return false;
+        }
+
+        @Override
+        public Iterable<CartEntity> findAll() {
+            return null;
+        }
+
+        @Override
+        public Iterable<CartEntity> findAllById(final Iterable<String> strings) {
+            return null;
+        }
+
+        @Override
+        public long count() {
+            return 0;
+        }
+
+        @Override
+        public void deleteById(final String s) {
+
+        }
+
+        @Override
+        public void delete(final CartEntity entity) {
+
+        }
+
+        @Override
+        public void deleteAllById(final Iterable<? extends String> strings) {
+
+        }
+
+        @Override
+        public void deleteAll(final Iterable<? extends CartEntity> entities) {
+
+        }
+
+        @Override
+        public void deleteAll() {
+
+        }
+
+        @Override
+        public Optional<CartEntity> findByCustomerId(final String customerId) {
             return cartEntity;
         }
     }

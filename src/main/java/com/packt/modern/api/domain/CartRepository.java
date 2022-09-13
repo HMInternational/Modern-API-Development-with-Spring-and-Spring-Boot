@@ -1,7 +1,10 @@
 package com.packt.modern.api.domain;
 
+import org.springframework.data.repository.CrudRepository;
+
 import java.util.Optional;
 
-public interface CartRepository {
-    Optional<CartEntity> findById(String customerId);
+public interface CartRepository extends CrudRepository<CartEntity, String> {
+
+    Optional<CartEntity> findByCustomerId(String customerId);
 }
