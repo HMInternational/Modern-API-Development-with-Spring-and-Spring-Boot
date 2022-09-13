@@ -1,27 +1,37 @@
 package com.packt.modern.api.service;
 
+import com.packt.modern.api.domain.CartEntity;
+import com.packt.modern.api.domain.CartRepository;
+import com.packt.modern.api.domain.ItemEntity;
 import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
 @Service
 public class ReadCartsServiceImpl implements ReadCartsService {
 
+    private final CartRepository cartRepository;
+
+    public ReadCartsServiceImpl(final CartRepository cartRepository) {
+        this.cartRepository = cartRepository;
+    }
+
     @Override
     public Optional<CartDto> findById(final String customerId) {
         if (null == customerId) throw new IllegalArgumentException("Customer Identifier  cannot be null");
-        if (!"uuid".equals(customerId)) return Optional.empty();
 
-        return Optional.of(stubCartDto(customerId));
+        final Optional<CartDto> cartDto = cartRepository.findById(customerId)
+                .map(cartEntity -> mapToDto(cartEntity));
+        return cartDto;
     }
 
-    private CartDto stubCartDto(final String customerId) {
-        return new CartDto(
-                customerId,
-                List.of(new ItemDto("id-0", 1, BigDecimal.valueOf(1000)),
-                        new ItemDto("id-1", 2, BigDecimal.valueOf(500))));
+    private CartDto mapToDto(final CartEntity cartEntity) {
+        return new CartDto(cartEntity.getCustomerId(), mapToItemsDto(cartEntity.getItems()));
+    }
+
+    private List<ItemDto> mapToItemsDto(final List<ItemEntity> items) {
+        return items.stream().map(itemEntity -> new ItemDto(null, null, null)).toList();
     }
 
 }
