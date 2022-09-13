@@ -1,21 +1,29 @@
 package com.packt.modern.api.controllers;
 
-import io.restassured.module.mockmvc.RestAssuredMockMvc;
+import io.restassured.RestAssured;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.http.MediaType;
+import org.springframework.transaction.annotation.Transactional;
 
-import static io.restassured.module.mockmvc.RestAssuredMockMvc.given;
+import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.blankOrNullString;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.core.Is.is;
 
+@Transactional
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class CartsControllerAcceptanceTest {
-    private final String customerId = "uuid-xx";
+    private final String customerId = "uuid";
+
+    @LocalServerPort
+    private int port;
 
     @BeforeEach
     void setUp() {
-        RestAssuredMockMvc.standaloneSetup(new CartsController());
+        RestAssured.port = port;
     }
 
     @Test

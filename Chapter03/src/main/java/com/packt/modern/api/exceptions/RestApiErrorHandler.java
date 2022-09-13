@@ -3,6 +3,7 @@ package com.packt.modern.api.exceptions;
 import com.fasterxml.jackson.core.JsonParseException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springdoc.api.OpenApiResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.http.HttpStatus;
@@ -31,6 +32,12 @@ public class RestApiErrorHandler {
     @Autowired
     public RestApiErrorHandler(final MessageSource messageSource) {
         this.messageSource = messageSource;
+    }
+
+    @ExceptionHandler(OpenApiResourceNotFoundException.class)
+    public ResponseEntity<Error> handleException(final OpenApiResourceNotFoundException ex) {
+        log.error(ex.getMessage(), ex);
+        return ResponseEntity.notFound().build();
     }
 
     @ExceptionHandler(Exception.class)
