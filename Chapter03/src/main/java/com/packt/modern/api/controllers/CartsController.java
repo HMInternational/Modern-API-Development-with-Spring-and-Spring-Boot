@@ -48,6 +48,10 @@ class CartsController implements CartApi {
     }
 
     private Item mapToItem(final ItemDto itemDto) {
-        return new Item();
+        final Item item = new Item();
+        item.setId(itemDto.id());
+        item.setQuantity(itemDto.quantity());
+        item.setUnitPrice(itemDto.unitPrice().doubleValue());
+        return item;
     }
 }
