@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.blankOrNullString;
 import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.not;
 import static org.hamcrest.core.Is.is;
 
 @Transactional
@@ -40,7 +41,9 @@ class CartsControllerAcceptanceTest {
                 .contentType(MediaType.APPLICATION_JSON_VALUE)
                 .assertThat()
                 .body("customerId", equalTo(customerId))
-                .body("items.size()", is(2));
+                .body("items.size()", is(2))
+                .body("_links.self.href", not(blankOrNullString()))
+                .body("_links.cart-items", not(blankOrNullString()));
     }
 
     @Test
