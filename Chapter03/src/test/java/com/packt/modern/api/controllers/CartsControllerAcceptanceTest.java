@@ -43,7 +43,7 @@ class CartsControllerAcceptanceTest {
                 .body("customerId", equalTo(customerId))
                 .body("items.size()", is(2))
                 .body("_links.self.href", not(blankOrNullString()))
-                .body("_links.cart-items", not(blankOrNullString()));
+                .body("_links.cart-items.href", not(blankOrNullString()));
     }
 
     @Test
