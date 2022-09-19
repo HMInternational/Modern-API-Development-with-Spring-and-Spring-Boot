@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
+
 @RestController
 class CartsController implements CartApi {
     private final ReadCartsService readCartsService;
@@ -36,6 +39,8 @@ class CartsController implements CartApi {
         final Cart cart = new Cart();
         cart.setItems(mapToItems(cartDto.items()));
         cart.setCustomerId(cartDto.customerId());
+        cart.add(linkTo(methodOn(CartsController.class).getCartByCustomerId(cart.getCustomerId())).withSelfRel());
+        cart.add(linkTo(methodOn(CartsController.class).getCartItemsByCustomerId(cart.getCustomerId())).withRel("cart-items"));
         return ResponseEntity.ok(cart);
     }
 
