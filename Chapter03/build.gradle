@@ -51,6 +51,7 @@ dependencies {
 
     // database drivers
     runtimeOnly 'com.h2database:h2'
+    runtimeOnly 'org.mariadb.jdbc:mariadb-java-client:2.7.6'
 
     // flyway
     implementation 'org.flywaydb:flyway-core:7.15.0'
