@@ -5,12 +5,14 @@ import com.packt.modern.api.model.Item;
 import com.packt.modern.api.service.CartDto;
 import com.packt.modern.api.service.ItemDto;
 import org.springframework.hateoas.server.mvc.RepresentationModelAssemblerSupport;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
+@Component
 class CartRepresentationModelAssembler extends RepresentationModelAssemblerSupport<CartDto, Cart> {
     CartRepresentationModelAssembler() {
         super(CartsController.class, Cart.class);

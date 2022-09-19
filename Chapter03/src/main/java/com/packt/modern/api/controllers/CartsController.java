@@ -11,10 +11,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 class CartsController implements CartApi {
     private final ReadCartsService readCartsService;
-    private final CartRepresentationModelAssembler modelAssembler = new CartRepresentationModelAssembler();
+    private final CartRepresentationModelAssembler modelAssembler;
 
-    CartsController(final ReadCartsService readCartsService) {
+    CartsController(final ReadCartsService readCartsService, final CartRepresentationModelAssembler modelAssembler) {
         this.readCartsService = readCartsService;
+        this.modelAssembler = modelAssembler;
     }
 
     @Override
