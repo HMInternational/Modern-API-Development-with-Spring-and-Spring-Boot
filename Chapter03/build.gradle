@@ -19,6 +19,7 @@ swaggerSources {
         code {
             language = 'spring'
             configFile = file(configJson)
+            rawOptions = ['--ignore-file-override', ignoreFile]
             components = [models: true, apis: true, supportingFiles: 'ApiUtil.java']
             dependsOn validation
         }
