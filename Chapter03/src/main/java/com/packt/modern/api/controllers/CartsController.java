@@ -29,8 +29,7 @@ class CartsController implements CartApi {
     private CartDto getCartDto(final String customerId) {
         return readCartsService
                 .findById(customerId)
-                .orElseThrow(() ->
-                        new OpenApiResourceNotFoundException("customer not found: (%s)".formatted(customerId)));
+                .orElseThrow(() -> new OpenApiResourceNotFoundException("customer not found: (%s)".formatted(customerId)));
     }
 
     private ResponseEntity<Cart> mapToResponse(final CartDto cartDto) {
