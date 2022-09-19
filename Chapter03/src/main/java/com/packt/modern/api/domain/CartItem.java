@@ -2,6 +2,7 @@ package com.packt.modern.api.domain;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.Comment;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -19,12 +20,15 @@ public class CartItem {
     @Column(name = "id", updatable = false, nullable = false)
     private String id;
 
+    @Comment("상품ID")
     @Column(name = "product_id")
     private String productId;
 
+    @Comment("단가")
     @Column(name = "unit_price")
     private BigDecimal unitPrice;
 
+    @Comment("수량")
     @Column(name = "quantity")
     private Integer quantity;
 }

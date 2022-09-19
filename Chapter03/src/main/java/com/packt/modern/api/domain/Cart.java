@@ -2,6 +2,7 @@ package com.packt.modern.api.domain;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.Comment;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -23,6 +24,7 @@ public class Cart {
     @Column(name = "id", updatable = false, nullable = false)
     private String id;
 
+    @Comment("고객ID")
     @Column(name = "customer_id")
     private String customerId;
 
