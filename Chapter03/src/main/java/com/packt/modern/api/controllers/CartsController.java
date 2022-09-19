@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 class CartsController implements CartApi {
     private final ReadCartsService readCartsService;
-    private final CartRepresentationModelAssembler cartRepresentationModelAssembler = new CartRepresentationModelAssembler();
+    private final CartRepresentationModelAssembler modelAssembler = new CartRepresentationModelAssembler();
 
     CartsController(final ReadCartsService readCartsService) {
         this.readCartsService = readCartsService;
@@ -20,7 +20,7 @@ class CartsController implements CartApi {
     @Override
     public ResponseEntity<Cart> getCartByCustomerId(final String customerId) {
         final CartDto cartDto = getCartDto(customerId);
-        return cartRepresentationModelAssembler.mapToResponse(cartDto);
+        return ResponseEntity.ok(modelAssembler.toModel(cartDto));
     }
 
     private CartDto getCartDto(final String customerId) {
